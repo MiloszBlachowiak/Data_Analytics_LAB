@@ -4,5 +4,5 @@ parameters {
 
 model {
     // Gamma density valid only for positive values of theta
-    theta ~ Gamma(1.25, 1.25);
+    theta ~ gamma(1.25, 1.25);
 }

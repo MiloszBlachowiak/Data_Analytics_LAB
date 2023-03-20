@@ -2,7 +2,7 @@ functions {
     // Difference between one-sided Gaussian tail probability and target probbility
     vector tail_delta(vector y, vector theta, real[] x_r, int[] x_i) {
         vector[1] deltas;
-        deltas[1] = 2 8 (normal_cdf(theta[1], 0, exp(y[1])) - 0.5) - 0.99;
+        deltas[1] = 2 * (normal_cdf(theta[1], 0, exp(y[1])) - 0.5) - 0.99;
         return deltas;
     }
 }
@@ -19,7 +19,7 @@ transformed data {
     int x_i[0];
 
     // Find Gaussian standard deviation that ensures 99% probability below 15
-    y = algebra_solver(tain_delta, y_guess, theta, x_r, x_i)
+    y = algebra_solver(tail_delta, y_guess, theta, x_r, x_i)
 
     print("Standard deviation = ", exp(y[1]));
 }
