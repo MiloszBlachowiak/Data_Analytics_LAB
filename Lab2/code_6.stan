@@ -19,7 +19,7 @@ transformed data {
     int x_i[0];
 
     // Find Gaussian standard deviation that ensures 99% probability below 15
-    y = algebra_solver(tail_delta, y_guess, theta, x_r, x_i)
+    y = algebra_solver(tail_delta, y_guess, theta, x_r, x_i);
 
     print("Standard deviation = ", exp(y[1]));
 }
